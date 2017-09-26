@@ -1,9 +1,20 @@
 package com.matias.harjoitus;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    Long id;
     String title, author;
     int year, isbn;
     double price;
+
+    public Book(){}
 
     public Book(String title, String author, int year, int isbn, double price) {
         this.title = title;
@@ -12,6 +23,10 @@ public class Book {
         this.isbn = isbn;
         this.price = price;
     }
+
+    public Long getId() {return id; }
+
+    public void setId(Long id) {this.id=id; }
 
     public String getTitle() {
         return title;
@@ -56,7 +71,8 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", year=" + year +
                 ", isbn=" + isbn +
