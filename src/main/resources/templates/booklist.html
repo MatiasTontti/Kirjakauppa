@@ -19,7 +19,7 @@
         <td th:text="${book.author}"></td>
         <td th:text="${book.isbn}"></td>
         <td th:text="${book.year}"></td>
-        <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
+        <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
     </tr>
 </table>
 <form th:action="@{/logout}" method="post">
